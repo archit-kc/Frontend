@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .box {
+            display: grid;
+            grid-template-rows: 4fr 12fr;
+            border: 1px solid rgb(143, 141, 141);
+            width: 400px;
+            height: 500px;
+            margin: auto;
+        }
+        
+        .cal-area {
+            background-color: white;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 3fr);
+        }
+        
+        .item {
+            background-color: rgb(230, 227, 227);
+            padding: 24px 29px 20px 40px;
+            font-size: large;
+            font-weight: bold;
+        }
+        
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .ac {
+            color: red;
+            padding-left: 30px;
+            font-size: 24px;
+        }
+        
+        #value {
+            font-size: large;
+            font-weight: bold;
+        }
+        
+        #ans {
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="cal-area">
+            <div id='value'>0</div>
+            <div id='ans'>0</div>
+        </div>
+        <div class="grid">
+            <div class="item" id='back' onclick=calci(id)><img src="error.png" alt="X"></div>
+            <div class="item ac" id='ac' onclick=calci(id)>AC</div>
+            <div class="item" id='percent' onclick=calci(id)><img src="discount.png" alt="%"></div>
+            <div class="item" id='divide' onclick=calci(id)><img src="noun_division_330130.png" alt="/"></div>
+            <div class="item" id='7' onclick=calci(id)>7</div>
+            <div class="item" id='8' onclick=calci(id)>8</div>
+            <div class="item" id='9' onclick=calci(id)>9</div>
+            <div class="item" id='multiply' onclick=calci(id)><img src="multiply.png" alt="*"></div>
+            <div class="item" id='4' onclick=calci(id)>4</div>
+            <div class="item" id='5' onclick=calci(id)>5</div>
+            <div class="item" id='6' onclick=calci(id)>6</div>
+            <div class="item" id='minus' onclick=calci(id)><img src="minus.png" alt="-"></div>
+            <div class="item" id='1' onclick=calci(id)>1</div>
+            <div class="item" id='2' onclick=calci(id)>2</div>
+            <div class="item" id='3' onclick=calci(id)>3</div>
+            <div class="item" id='plus' onclick=calci(id)><img src="plus1.png" alt="+"></div>
+            <div class="item" id='0' onclick=calci(id)>0</div>
+            <div class="item" id='00' onclick=calci(id)>00</div>
+            <div class="item" id='decimal' onclick=calci(id)>.</div>
+            <div class="item" id='equal' onclick=calci(id)><img src="equal.png" alt="="></div>
+        </div>
+    </div>
+</body>
+<script>
+    function calci(id) {
+        let num = 0;
+        let arr = [];
+        if (id == 'equal') {
+            let val = document.getElementById('value').innerHTML;
+            for (let i = 0; i < val.length; i++) {
+                arr.push(val[i]);
+            }
+            let result_arr = solve(arr);
+            console.log(result_arr);
+            document.getElementById('value').innerHTML = '0';
+            document.getElementById('ans').innerHTML = result_arr;
+        } else if (id == 'ac') {
+            clr();
+        } else if (id == 'back') {
+            clrbyone();
+        } else {
+            num = getval(id);
+            console.log(num);
+            document.getElementById('value').innerHTML += num;
+        }
+    }
+
+    function clr() {
+        document.getElementById('value').innerHTML = '0';
+        document.getElementById('ans').innerHTML = '0';
+    }
+
+    function clrbyone() {
+        document.getElementById('value').innerHTML = '0';
+    }
+
+    function getval(id) {
+        if (id == '1') {
+            return 1;
+        }
+        if (id == '2') {
+            return 2;
+        }
+        if (id == '3') {
+            return 3;
+        }
+        if (id == '4') {
+            return 4;
+        }
+        if (id == '5') {
+            return 5;
+        }
+        if (id == '6') {
+            return 6;
+        }
+        if (id == '7') {
+            return 7;
+        }
+        if (id == '8') {
+            return 8;
+        }
+        if (id == '9') {
+            return 9;
+        }
+        if (id == '0') {
+            return 0;
+        }
+        if (id == '00') {
+            return 00;
+        }
+        if (id == 'plus') {
+            return '+';
+        }
+        if (id == 'minus') {
+            return '-';
+        }
+        if (id == 'multiply') {
+            return '*';
+        }
+        if (id == 'divide') {
+            return '/';
+        }
+        if (id == 'percent') {
+            return '%';
+        }
+        if (id == 'decimal') {
+            return '.';
+        }
+    }
+
+
+    function solve(arr) {
+        console.log(arr);
+        let ans_arr = [];
+        let count = 0;
+        let num = '0';
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == '+') {
+                ans_arr[count] = num;
+                ans_arr[count + 1] = '+';
+                num = '0';
+                count = count + 2;
+            } else if (arr[i] == '-') {
+                ans_arr[count] = num;
+                ans_arr[count + 1] = '-';
+                num = '0';
+                count = count + 2;
+            } else if (arr[i] == '*') {
+                ans_arr[count] = num;
+                ans_arr[count + 1] = '*';
+                num = '0';
+                count = count + 2;
+            } else if (arr[i] == '/') {
+                ans_arr[count] = num;
+                ans_arr[count + 1] = '/';
+                num = '0';
+                count = count + 2;
+            } else if (arr[i] == '%') {
+                ans_arr[count] = num;
+                ans_arr[count + 1] = '%';
+                num = '0';
+                count = count + 2;
+            } else {
+                num = num + arr[i];
+            }
+            if (num != '0') {
+                ans_arr[count] = num;
+            }
+        }
+        console.log(ans_arr);
+        let ans_var = 0;
+        for (let a = 0; a < ans_arr.length; a = a + 3) {
+            if (ans_arr[a + 1] == '+') {
+                ans_var = parseFloat(ans_arr[a]) + parseFloat(ans_arr[a + 2]);
+            } else if (ans_arr[a + 1] == '-') {
+                ans_var = parseFloat(ans_arr[a]) - parseFloat(ans_arr[a + 2]);
+            } else if (ans_arr[a + 1] == '*') {
+                ans_var = parseFloat(ans_arr[a]) * parseFloat(ans_arr[a + 2]);
+            } else if (ans_arr[a + 1] == '/') {
+                ans_var = parseFloat(ans_arr[a]) / parseFloat(ans_arr[a + 2]);
+            } else if (ans_arr[a + 1] == '%') {
+                ans_var = parseFloat(ans_arr[a]) * (parseFloat(ans_arr[a + 2]) / 100);
+            }
+        }
+        console.log(ans_var);
+        return ans_var;
+    }
+</script>
+
+</html>

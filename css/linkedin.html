@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkedin Page</title>
+    <style>
+        body {
+            background-color: rgba(223, 221, 221, 0.918);
+        }
+        
+        .navbar {
+            display: flex;
+            background-color: white;
+            margin: -8px;
+            min-height: auto;
+        }
+        
+        .navbar ul {
+            display: flex;
+            margin: 12px;
+        }
+        
+        .navbar ul li {
+            list-style: none;
+            padding: 4px;
+        }
+        
+        .navbar ul li img {
+            width: 35px;
+            height: 30px;
+            border-radius: 10%;
+        }
+        
+        .navbar ul li input {
+            width: 250px;
+            height: 26px;
+            border: none;
+            box-shadow: none;
+            background-color: rgb(226, 239, 235);
+        }
+        
+        .icons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            width: 50%;
+            /* align-items: center; */
+        }
+        
+        .icons a img {
+            width: 35px;
+            height: 20px;
+            border-radius: 10%;
+        }
+        
+        .icons div {
+            display: block;
+            padding: 4px 4px 4px 4px;
+            margin: 0px 8px 0px 8px;
+            text-align: center;
+        }
+        
+        .extra-icons {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+        
+        .extra-icons div {
+            display: block;
+            padding: 4px 4px 4px 4px;
+            margin: 0px 8px 0px 8px;
+            text-align: center;
+        }
+        
+        .extra-icons a img {
+            width: 35px;
+            height: 20px;
+            border-radius: 10%;
+        }
+        
+        #reactivate {
+            font-size: 16px;
+            display: contents;
+            color: #915907;
+            max-width: 50%;
+        }
+        
+        .main-body {
+            display: block;
+            margin-top: 40px;
+        }
+        
+        .bar {
+            border: none;
+            background-color: rgba(223, 221, 221, 0.918);
+            margin: 2px;
+        }
+        
+        .main {
+            display: grid;
+            grid-template-columns: 5fr 12fr 7fr;
+            margin: 2px 50px 2px 50px;
+            column-gap: 2.5rem;
+        }
+        
+        .side {
+            border: none;
+            background-color: white;
+            display: grid;
+            grid-template-rows: 6fr 2fr 2fr 1fr;
+            text-align: center;
+            row-gap: 1px;
+            height: fit-content;
+        }
+        
+        .main-section {
+            border: none;
+            background-color: rgba(223, 221, 221, 0.918);
+            display: grid;
+            grid-template-rows: 3fr 12fr;
+            row-gap: 3rem;
+            margin: auto;
+            width: 100%;
+            height: fit-content
+        }
+        
+        .aside {
+            border: none;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            /* grid-template-rows: 5fr 2fr 2fr 2fr; */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 4px 18px;
+            height: fit-content;
+        }
+        
+        .side div img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: -26px auto 0px 0px;
+        }
+        
+        .side-border {
+            border-bottom: 1px solid rgba(0, 0, 0, .15);
+        }
+        
+        .side-text {
+            text-align: left;
+            padding: 7px;
+            font-size: small;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .space {
+            background-color: #a3bcc5;
+            height: 40px;
+        }
+        
+        .name-space {
+            padding: 40px 0px;
+            text-align: center;
+            font-size: large;
+            font-weight: bold;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .gray {
+            color: gray;
+            font-weight: bold;
+        }
+        
+        .news {
+            padding: 14px 0px 0px 0px;
+            font-size: large;
+            font-weight: bold;
+        }
+        
+        .list-block {
+            padding: 10px;
+        }
+        
+        .list-item {
+            font-size: 14px;
+            font-weight: bold;
+            display: list-item;
+        }
+        
+        .small-f {
+            font-size: 10px;
+            padding: 3px;
+        }
+        
+        .create-post {
+            background-color: white;
+            border-radius: 7px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .create-post-part-1 {
+            display: flex;
+            flex-grow: 1;
+            padding-bottom: 17px;
+        }
+        
+        .create-post-part-2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        .create-post-part-2 div {
+            display: flex;
+        }
+        
+        .create-post-part-2 div span {
+            padding: 3px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: rgb(134, 131, 131);
+            font-size: medium;
+            font-weight: bold;
+        }
+        
+        #create-post-img-1 {
+            width: 20px;
+            height: 25px;
+            border-radius: 0px;
+        }
+        
+        #create-post-img-2 {
+            width: 20px;
+            height: 25px;
+            border-radius: 0px;
+        }
+        
+        #create-post-img-3 {
+            width: 20px;
+            height: 25px;
+            border-radius: 0px;
+        }
+        
+        #create-post-img-4 {
+            width: 20px;
+            height: 20px;
+            border-radius: 0px;
+        }
+        
+        .create-post div img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .create-post div input {
+            margin-left: 14px;
+            height: 45px;
+            padding-left: 16px;
+            border-radius: 23px;
+            border: 1px solid rgba(0, 0, 0, .22);
+            flex-grow: 1;
+        }
+        
+        .create-post div input::placeholder {
+            font-size: medium;
+            font-weight: bold;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: rgb(134, 131, 131);
+        }
+        
+        .show-post {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="#"><img src="linkedin (1).svg" alt="logo"></a>
+            </li>
+            <li><input type="text" placeholder="Search"></li>
+        </ul>
+        <div class="icons">
+            <div>
+                <a href="#"><img src="home.svg"></a><br>
+                <span>Home</span>
+            </div>
+            <div>
+                <a href="#"><img src="users.svg" alt="Network"></a><br>
+                <span>Network</span>
+            </div>
+            <div>
+                <a href="#"><img src="suitcase.svg" alt="Jobs"></a><br>
+                <span>Jobs</span>
+            </div>
+            <div>
+                <a href="#"><img src="chat.svg" alt="Messaging"></a><br>
+                <span>Messaging</span>
+            </div>
+            <div>
+                <a href="#"><img src="bell.svg" alt="Notifications"></a><br>
+                <span>Notifications</span>
+            </div>
+            <div>
+                <a href="#"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="ME"></a><br>
+                <span>Me</span>
+            </div>
+        </div>
+        <div class="extra-icons">
+            <div>
+                <a href="#"><img src="nine-dots-in-a-square.svg" alt="Work"></a><br>
+                <span>Work</span>
+            </div>
+            <div><a href="#" id="reactivate">Reactivate Premium</a></div>
+        </div>
+    </nav>
+    <section class="main-body">
+        <section class="bar"></section>
+        <div class="main">
+            <div class="side">
+                <div class="side-border">
+                    <div class="space"></div>
+                    <img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="Me">
+                    <div class="name-space">Archit</div>
+                </div>
+                <div class="side-border side-text"><span class="gray">Connections</span><br>
+                    <span><strong>Grow your Connections</strong></span></div>
+                <div class="side-border side-text"><span class="gray">Access exclusive tools and insights.</span><br>
+                    <span><strong>Reactivate Premium</strong></span></div>
+                <div class="side-text"><span><strong>My items</strong></span></div>
+            </div>
+            <main class="main-section">
+                <div class="create-post">
+                    <div class="create-post-part-1"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="Me">
+                        <input type="text" placeholder="Start a post"></div>
+                    <div class="create-post-part-2">
+                        <div><img id="create-post-img-1" src="gallery.svg" alt="Photo">
+                            <span>Photo</span></div>
+                        <div><img id="create-post-img-2" src="youtube.svg" alt="Video">
+                            <span>Video</span></div>
+                        <div><img id="create-post-img-3" src="calendar.svg" alt="Event">
+                            <span>Event</span></div>
+                        <div><img id="create-post-img-4" src="article.svg" alt="Article">
+                            <span>Write article</span></div>
+                    </div>
+                </div>
+                <div class="show-post">2</div>
+            </main>
+            <div class="aside">
+                <div class="news">
+                    <span class="news-span">Linkedin News</span>
+                    <!-- <span class="i">i</span> -->
+                </div>
+                <div>
+                    <div class="list-block">
+                        <div class="list-item">Building a better morining routine</div>
+                        <div class="gray small-f">2d ago</div>
+                    </div>
+                    <div class="list-block">
+                        <div class="list-item">Your salary hike in 2021</div>
+                        <div class="gray small-f">2d ago</div>
+                    </div>
+                    <div class="list-block">
+                        <div class="list-item">What hiring trends look like</div>
+                        <div class="gray small-f">4d ago</div>
+                    </div>
+                    <div class="list-block">
+                        <div class="list-item">After Coinbase's debut, what's next?</div>
+                        <div class="gray small-f">5d ago</div>
+                    </div>
+                    <div class="list-block">
+                        <div class="list-item">What employers are looking for</div>
+                        <div class="gray small-f">1w ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
