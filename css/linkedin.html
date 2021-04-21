@@ -277,6 +277,40 @@
         
         .show-post {
             background-color: white;
+            display: flex;
+            padding: 15px;
+            height: fit-content;
+            border-radius: 7px;
+        }
+        
+        .show-post-1 {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .show-post-1 div {
+            display: flex;
+            flex-direction: column;
+            padding-left: 6px;
+        }
+        
+        .user-name {
+            color: black;
+            font-size: medium;
+            font-weight: bold;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .span-class {
+            font-size: small;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: gray;
+        }
+        
+        .show-post div img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -353,7 +387,11 @@
                             <span>Write article</span></div>
                     </div>
                 </div>
-                <div class="show-post">2</div>
+                <div class="show-post">
+                    <div class="show-post-1"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="Me">
+                        <div><span class="user-name">Linkedin User</span><span class="span-class">23,000+ Connections! Helping job seekers finding...</span><span class="span-class">3w</span><span class="span-class">Edited</span><img src="" alt=""></div>
+                    </div>
+                </div>
             </main>
             <div class="aside">
                 <div class="news">
