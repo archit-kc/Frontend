@@ -281,14 +281,16 @@
             padding: 15px;
             height: fit-content;
             border-radius: 7px;
+            flex-direction: column;
         }
         
         .show-post-1 {
             display: flex;
             flex-direction: row;
+            padding-bottom: 10px;
         }
         
-        .show-post-1 div {
+        .show-post-detail {
             display: flex;
             flex-direction: column;
             padding-left: 6px;
@@ -299,18 +301,41 @@
             font-size: medium;
             font-weight: bold;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding-bottom: 2px;
         }
         
         .span-class {
             font-size: small;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             color: gray;
+            padding: 2px;
         }
         
         .show-post div img {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
+        }
+        
+        .span-flex {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #privacy {
+            width: 16px;
+            height: 16px;
+            display: list-item;
+            padding-left: 2px;
+        }
+        
+        .hashtag {
+            color: #0a66c2;
+            font-weight: bold;
+        }
+        
+        .show-post-2 {
+            padding-left: 4px;
         }
     </style>
 </head>
@@ -389,7 +414,17 @@
                 </div>
                 <div class="show-post">
                     <div class="show-post-1"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="Me">
-                        <div><span class="user-name">Linkedin User</span><span class="span-class">23,000+ Connections! Helping job seekers finding...</span><span class="span-class">3w</span><span class="span-class">Edited</span><img src="" alt=""></div>
+                        <div class="show-post-detail"><span class="user-name">Linkedin User</span><span class="span-class">23,000+ Connections! Helping job seekers finding...</span>
+                            <div class="span-flex"><span class="span-class">3w</span><img src="world.svg" alt="" id="privacy"></div>
+                        </div>
+                    </div>
+                    <div class="show-post-2">
+                        <p class="main-content">Jaruri nahi ki har designer graduated ho......or wo bas test h deta rahe......agar designers k Liye bhi degree bney lge tou log mostly Yebhi chod denge......ab is line m itne compatitor ho gye hai...ki ache log ghr bethe huye hai...or
+                            jo freshers hai unse kaam chala rhe hai......designer hai tou design or ideas or creativity se test lena chahiye......na ki English communication Krna ana chahiye......hum apko btayenge...itne test ke baad bh ye word hote hai....or
+                            test me hota kya hai.....apne apko introduce kro....ghr kha hai...? Fmly m kon kon hai....slry kya hai....kyu job chod rhe ho....mtlb ye test hai.???? Designers ka.... tou ni dena ese test jhaa ap insab chij s judge krte ho
+                            ek graphic designer ko.... main tou jha bhi gai....sab jagah bs communication skill dekhre.....designing tou krwai h nahi....kbhi kal btate hai....oh sorry main bhul gai btana....infact hum h 2 din baad phn krke puchenge ki
+                            mam kya rha apne btaya ni......??? Ye tou HR ke haal hai....jo interview k liye call tou krdeti hai....but result ke liye hmko h call Krna pdta hai.....wobhi rejection sunney k liye bas.......... </p>
+                        <p class="hashtag">#graphicdesigner #savedesignerslife #design #job #creativity #marketing #india #communication #experience #delhi #savegraphicdesigners #vocalforlocalindia #digitaladvertising</p>
                     </div>
                 </div>
             </main>
