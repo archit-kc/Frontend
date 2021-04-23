@@ -42,6 +42,10 @@
             background-color: rgb(226, 239, 235);
         }
         
+        .navbar ul li input:focus {
+            outline: none;
+        }
+        
         .icons {
             display: flex;
             flex-direction: row;
@@ -275,6 +279,10 @@
             color: rgb(134, 131, 131);
         }
         
+        .create-post div input:focus {
+            outline: none;
+        }
+        
         .show-post {
             background-color: white;
             display: flex;
@@ -311,7 +319,7 @@
             padding: 2px;
         }
         
-        .show-post div img {
+        .show-post-1 img {
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -336,6 +344,47 @@
         
         .show-post-2 {
             padding-left: 4px;
+            margin-bottom: 9px;
+            border-bottom: 1px solid rgb(172, 169, 169);
+        }
+        
+        .show-post-3 {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .post-bottom {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .post-bottom img {
+            width: 25px;
+            height: 25px;
+            padding-right: 5px;
+        }
+        
+        .post-bottom span {
+            padding-right: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #00000099;
+            font-weight: bold;
+            font-size: large;
+        }
+        
+        button {
+            background-color: white;
+            border: none;
+            display: flex;
+            padding: 7px;
+        }
+        
+        button:hover {
+            background-color: #d6cec2;
+        }
+        
+        button:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -425,6 +474,12 @@
                             ek graphic designer ko.... main tou jha bhi gai....sab jagah bs communication skill dekhre.....designing tou krwai h nahi....kbhi kal btate hai....oh sorry main bhul gai btana....infact hum h 2 din baad phn krke puchenge ki
                             mam kya rha apne btaya ni......??? Ye tou HR ke haal hai....jo interview k liye call tou krdeti hai....but result ke liye hmko h call Krna pdta hai.....wobhi rejection sunney k liye bas.......... </p>
                         <p class="hashtag">#graphicdesigner #savedesignerslife #design #job #creativity #marketing #india #communication #experience #delhi #savegraphicdesigners #vocalforlocalindia #digitaladvertising</p>
+                    </div>
+                    <div class="show-post-3">
+                        <div class="post-bottom"><button><img src="like.svg" alt="Like"><span>Like</span></button></div>
+                        <div class="post-bottom"><button><img src="commenting.svg" alt="Comment"><span>Comment</span></button></div>
+                        <div class="post-bottom"><button><img src="share.svg" alt="Share"><span>Share</span></button></div>
+                        <div class="post-bottom"><button><img src="send.svg" alt="send"><span>Send</span></button></div>
                     </div>
                 </div>
             </main>
