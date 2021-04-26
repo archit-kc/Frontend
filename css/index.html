@@ -5,8 +5,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Facebook</title>
+    <style>
+        body {
+            background-color: rgb(24, 23, 23);
+        }
+        
+        .navbar {
+            background-color: rgb(56, 55, 55);
+            display: flex;
+            flex-direction: row;
+            margin: -7px;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+        }
+        
+        .navbar-1 {
+            display: flex;
+            flex-direction: row;
+            width: 25%;
+        }
+        
+        .navbar-1 a img {
+            width: 35px;
+            height: 35px;
+            padding-left: 5px;
+        }
+        
+        .navbar-1 input {
+            padding-left: 7px;
+            margin-left: 5px;
+            width: 200px;
+            height: 30px;
+            background-color: rgb(77, 75, 75);
+            border: none;
+            box-shadow: none;
+            border-radius: 15px;
+        }
+        
+        .navbar-1 input::placeholder {
+            padding-left: 5px;
+            color: #e6f7f8fd;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: small;
+        }
+        
+        .navbar-1 input:focus {
+            outline: none;
+        }
+        
+        .navbar-2 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 50%;
+        }
+        
+        .navbar-2 a img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .navbar-2 a:focus {
+            outline: blue;
+            background-color: white;
+            text-underline-position: below;
+        }
+        
+        .navbar-3 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 25%;
+        }
+        
+        .profileimg {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        
+        .profilename {
+            color: #e6f7f8fd;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: medium;
+            margin-left: 5px;
+        }
+        
+        .self-margin {
+            border-radius: 50%;
+            background-color: rgb(77, 75, 75);
+            margin: 0px 10px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        
+        .img-style {
+            width: 15px;
+            height: 15px;
+            padding-top: 7px;
+        }
+        
+        .main-body {
+            display: grid;
+            grid-template-columns: 4fr 7fr 4fr;
+            column-gap: 2.4rem;
+            position: relative;
+            top: 85px;
+        }
+        
+        .aside-1 {
+            background-color: rgb(24, 23, 23);
+            border: none;
+            color: #e6f7f8fd;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            border-bottom: 1px solid rgba(61, 60, 60, 0.568);
+        }
+        
+        .aside-1 div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .aside-1 div img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .seemore-style {
+            border-radius: 50%;
+            background-color: rgb(77, 75, 75);
+            width: 25px;
+            height: 20px;
+            text-align: center;
+            padding-top: 5px;
+            font-size: x-small;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,60 +164,63 @@
 
     <header>
         <nav class="navbar">
-            <ul>
-                <li>
-                    <a href="#"><img src="facebook.png" alt="logo"></a>
-                </li>
-                <li> <input type="text" placeholder="Seach Facebook" class="search"></li>
-            </ul>
-            <div class="icon">
-                <ul class="homeicon">
-                    <li>
-                        <a href="#"><img src="home.png" alt="icon1"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="tv.png" alt="icon2"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="calendar.png" alt="icon3"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="group.png" alt="icon4"></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="identification.png" alt="icon3"></a>
-                    </li>
-                </ul>
+            <div class="navbar-1">
+                <a href="#"><img src="facebook.png" alt="logo"></a>
+                <input type="text" placeholder="Seach Facebook" class="search">
             </div>
-            <div class="profile">
-                <ul class="profileicon">
-                    <li>
-                        <a href="#"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="icon1" id="dp"></a>
-                    </li>
-                    <li class="profilename"><label for="">Mark</label></li>
-                    <li>
-                        <a href="#"><img src="plus.png" alt="icon2"></a>
-                    </li>
-                    <!-- <li id="first">5</li> -->
-                    <li>
-                        <a href="#"><img src="messenger.png" alt="icon3"></a>
-                    </li>
-                    <!-- <li id="second">3</li> -->
+            <div class="navbar-2">
+                <div>
+                    <a href="#"><img src="home.png" alt="icon1"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="tv.png" alt="icon2"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="calendar.png" alt="icon3"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="group.png" alt="icon4"></a>
+                </div>
+                <div>
+                    <a href="#"><img src="identification.png" alt="icon3"></a>
+                </div>
+            </div>
+            <div class="navbar-3">
+                <div>
+                    <a href="#"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="icon1" id="dp" class="profileimg"></a>
+                </div>
+                <div class="profilename"><label for="">Archit</label></div>
+                <div class="self-margin">
+                    <a href="#"><img src="plus.png" alt="icon2" class="img-style"></a>
+                </div>
+                <div class="self-margin">
+                    <a href="#"><img src="messenger.png" alt="icon3" class="img-style"></a>
+                </div>
 
-                    <li>
-                        <a href="#"><img src="bell.png" alt="icon4"></a>
-                    </li>
-                </ul>
-            </div>
+                <div class="self-margin">
+                    <a href="#"><img src="bell.png" alt="icon4" class="img-style"></a>
+                </div>
         </nav>
     </header>
 
+    <section class="main-body">
+        <aside class="aside-1">
+            <div><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="Me">
+                <span>Archit Garg</span></div>
+            <div><img src="flag.svg" alt="flag"><span>Pages</span></div>
+            <div><img src="file.svg" alt="info-center"><span>COVID-19 Information Center</span></div>
+            <div><img src="talk.svg" alt="people"><span>Friends</span></div>
+            <div><img src="group.svg" alt="group"><span>Groups</span></div>
+            <div><img src="marketplace.svg" alt="marketplace"><span>Marketplace</span></div>
+            <div><img src="facebook.svg" alt="watch"><span>Watch</span></div>
+            <div><img src="calendar.svg" alt="events"><span>Events</span></div>
+            <div><img src="wall-clock.svg" alt="memories"><span>Memories</span></div>
+            <div><span class="seemore-style">v</span><span>See More</span></div>
+        </aside>
+        <main>2</main>
+        <aside class="aside-2">3</aside>
+    </section>
 
-
-    <!-- <h1>This is css tutorial</h1>
-        <p id="firstpara"> This is paragraph</p>
-        <p id="secondpara">this is a second paragraph.</p>
-        <a href="box-model.html">Box Model</a> -->
 </body>
 
 </html>
