@@ -425,6 +425,88 @@
             height: 20px;
             margin-right: 3px;
         }
+        
+        .post-button {
+            background-color: rgb(56, 55, 55);
+            display: flex;
+            padding: 4px;
+            border: none;
+            color: rgb(170, 169, 169);
+            align-items: center;
+        }
+        
+        .post-button:focus {
+            outline: none;
+        }
+        
+        .post-button:hover {
+            background-color: rgb(73, 72, 72);
+            cursor: pointer;
+        }
+        
+        .main-3 {
+            display: flex;
+            flex-direction: column;
+            margin: 25px;
+            background-color: rgb(56, 55, 55);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        .post-1 {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .post-1 img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin-right: 7px;
+        }
+        
+        .profile-data {
+            display: flex;
+            flex-direction: column;
+            font-size: small;
+            color: black;
+        }
+        
+        .post-2 {
+            margin: 10px 3px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(27, 27, 27, 0.568);
+        }
+        
+        .post-3 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .post-3 button {
+            background-color: rgb(56, 55, 55);
+            margin-right: 10px;
+            display: flex;
+            padding: 4px;
+            border: none;
+            color: rgb(170, 169, 169);
+            align-items: center;
+        }
+        
+        .post-3 button:focus {
+            outline: none;
+        }
+        
+        .post-3 button:hover {
+            background-color: rgb(73, 72, 72);
+            cursor: pointer;
+        }
+        
+        .post-3 button img {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 </head>
 
@@ -488,7 +570,7 @@
             <div><img src="wall-clock.svg" alt="memories"><span>Memories</span></div>
             <div><span class="seemore-style">v</span><span>See More</span></div>
         </aside>
-        <main>
+        <main id="main">
             <div class="main-1">
                 <div class="story-style-1"><img src="BduTxWnIUAAKT_5.jpg" alt=""><span>Fernandez</span></div>
                 <div class="story-style-2"><img src="BduTxWnIUAAKT_5.jpg" alt=""><span>Salena</span></div>
@@ -497,15 +579,23 @@
                 <div class="story-style-5"><img src="BduTxWnIUAAKT_5.jpg" alt=""><span>Jaadu</span></div>
             </div>
             <div class="main-2">
-                <div class="create-post-1"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt=""><input type="text" placeholder="What's in your mind, Archit?"></div>
+                <div class="create-post-1"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt=""><input type="text" placeholder="What's in your mind, Archit?" id="post-input"></div>
                 <div class="create-post-2">
                     <div class="post-icons"><img src="video-camera.svg" alt=""><span>Live Video</span></div>
                     <div class="post-icons"><img src="gallery.svg" alt=""><span>Photos/Video</span></div>
                     <div class="post-icons"><img src="laughing.svg" alt=""><span></span>Feeling/Activity</span>
                     </div>
+                    <div class="post-icons"><button type="submit" class="post-button" id="post-submit"><img src="paper-plane.svg" alt=""><span></span>Post</span></button>
+                    </div>
                 </div>
             </div>
-            <div class="main-3">3</div>
+            <div class="main-3" id="post">
+                <div class="post-1"><img src="WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg" alt="">
+                    <div class="profile-data"><span>Archit Garg</span><span>2mins ago.</span></div>
+                </div>
+                <div class="post-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime recusandae dolore reiciendis natus soluta nam vel, ipsa consectetur laudantium, officiis doloribus cum cumque, accusantium tempore quis placeat error facere quisquam?</div>
+                <div class="post-3"><button id="like"><img src="like (1).svg" alt=""><span>Like</span></button><button id="comment"><img src="message.svg" alt=""><span>Comment</span></button><button id="share"><img src="share.svg" alt=""><span>Share</span></button></div>
+            </div>
         </main>
         <aside class="aside-2">
             <div class="section-1"><span class="birthday-head">Birthdays</span>
@@ -532,5 +622,94 @@
     </section>
 
 </body>
+
+<script>
+    document.getElementById("post-submit").addEventListener('click', displaypost);
+    document.getElementById("like").addEventListener('click', changecolor);
+    document.getElementById("comment").addEventListener('click', changecolor);
+    document.getElementById("share").addEventListener('click', changecolor);
+
+    function displaypost() {
+        let text;
+        text = document.getElementById('post-input').value;
+        console.log(text);
+        document.getElementById('post-input').value = '';
+        let div = document.createElement("div");
+        div.classList.add("main-3")
+
+        document.getElementById("main").appendChild(div);
+        let div1 = document.createElement("div");
+        div1.classList.add("post-1");
+
+        let profileimg = document.createElement("img");
+        profileimg.src = "WhatsApp Image 2021-02-10 at 11.26.54 AM.jpeg";
+        div1.appendChild(profileimg);
+
+        let profile_data = document.createElement("div");
+        profile_data.className = "profile-data";
+
+        let profilename = document.createElement("span");
+        profilename.innerText = "Archit Garg";
+        profile_data.appendChild(profilename);
+        let post_time = document.createElement("span");
+        post_time.innerText = "now";
+        profile_data.appendChild(post_time);
+        div1.appendChild(profile_data)
+        div.appendChild(div1);
+
+        let post_body = document.createElement("div");
+        post_body.className = "post-2";
+        post_body.innerText = text;
+        div.appendChild(post_body);
+
+        let post_buttons = document.createElement("div");
+        post_buttons.className = "post-3";
+
+        let like_btn = document.createElement("button");
+        let like_btn_img = document.createElement("img");
+        like_btn_img.src = "like (1).svg"
+        like_btn.appendChild(like_btn_img);
+        let like_btn_span = document.createElement("span");
+        like_btn_span.innerText = "Like";
+        like_btn.appendChild(like_btn_span);
+        post_buttons.appendChild(like_btn);
+        like_btn.addEventListener("click", changecolor);
+
+        let comment_btn = document.createElement("button");
+        let comment_btn_img = document.createElement("img");
+        comment_btn_img.src = "message.svg"
+        comment_btn.appendChild(comment_btn_img);
+        let comment_btn_span = document.createElement("span");
+        comment_btn_span.innerText = "Comment";
+        comment_btn.appendChild(comment_btn_span);
+        post_buttons.appendChild(comment_btn);
+        comment_btn.addEventListener("click", changecolor)
+
+        let share_btn = document.createElement("button");
+        let share_btn_img = document.createElement("img");
+        share_btn_img.src = "share.svg"
+        share_btn.appendChild(share_btn_img);
+        let share_btn_span = document.createElement("span");
+        share_btn_span.innerText = "Share";
+        share_btn.appendChild(share_btn_span);
+        post_buttons.appendChild(share_btn);
+        share_btn.addEventListener("click", changecolor);
+
+        div.appendChild(post_buttons);
+
+    }
+
+    function changecolor() {
+        let color = this.style.color;
+        console.log(color);
+        if (color == 'blue') {
+            this.style.color = 'rgb(170, 169, 169)';
+            this.style.backgroundColor = 'rgb(56, 55, 55)';
+        } else {
+            this.style.color = 'blue';
+            this.style.backgroundColor = 'rgb(73, 72, 72)';
+        }
+    }
+</script>
 
 </html>
