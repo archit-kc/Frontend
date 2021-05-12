@@ -93,6 +93,7 @@
 
 <script>
     colors_arr = ['red', 'blue', 'green', 'yellow']
+    let level = 1;
 
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
@@ -128,7 +129,7 @@
         let rand_arr = [];
         let user_arr = [];
         let display = document.getElementById("display");
-        display.innerText = "Let's Play";
+        display.innerText = "WAIT";
         let red = document.getElementById("red");
         let yellow = document.getElementById("yellow");
         let blue = document.getElementById("blue");
@@ -157,16 +158,20 @@
 
 
         setTimeout(function() {
-            display.innerText = "Level 1";
-            let time = 0;
-            for (let x = 0; x < rand_arr.length; x++) {
-                rand_id = colors_arr[rand_arr[x]];
-                console.log(rand_id);
-                (function(x) {
-                    setTimeout(getColorActive(rand_id), 1000 * x);
-                })(x);
-                time += 1000;
-            }
+            display.innerText = "Level " + level;
+            level += 1;
+            setTimeout(function() {
+                getColorActive(colors_arr[rand_arr[0]]);
+            }, 1000);
+            setTimeout(function() {
+                getColorActive(colors_arr[rand_arr[1]]);
+            }, 2500);
+            setTimeout(function() {
+                getColorActive(colors_arr[rand_arr[2]]);
+            }, 4000);
+            setTimeout(function() {
+                getColorActive(colors_arr[rand_arr[3]]);
+            }, 5500);
         }, 5000);
 
         setTimeout(function() {
@@ -185,7 +190,7 @@
                 return user_arr;
             }
             console.log(user_arr);
-        }, 10000)
+        }, 11500);
         return user_arr;
     }
 
@@ -201,6 +206,7 @@
                 display.innerText = "You Won";
             } else {
                 display.innerText = "You Lose";
+                level = 1;
             }
             setTimeout(function() {
                 display.innerText = "Press Start";
