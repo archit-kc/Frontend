@@ -92,7 +92,41 @@
 </body>
 
 <script>
+    colors_arr = ['red', 'blue', 'green', 'yellow']
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function getColorActive(id) {
+        let color = document.getElementById(id);
+        if (id == 'red') {
+            color.style.backgroundColor = 'red';
+        } else if (id == 'yellow') {
+            color.style.backgroundColor = 'yellow';
+        } else if (id == 'blue') {
+            color.style.backgroundColor = 'blue';
+        } else if (id == 'green') {
+            color.style.backgroundColor = 'green';
+        }
+        setTimeout(function() {
+            if (id == 'red') {
+                color.style.backgroundColor = '#ff0000a8';
+            } else if (id == 'yellow') {
+                color.style.backgroundColor = '#ffff008f';
+            } else if (id == 'blue') {
+                color.style.backgroundColor = '#0000ff78';
+            } else if (id == 'green') {
+                color.style.backgroundColor = '#0080009e';
+            }
+        }, 1000);
+
+        return id;
+    }
+
     function start() {
+        let rand_arr = [];
+        let user_arr = [];
         let display = document.getElementById("display");
         display.innerText = "Let's Play";
         let red = document.getElementById("red");
@@ -114,8 +148,64 @@
         }, 3000);
         setTimeout(function() {
             green.style.backgroundColor = '#0080009e';
-            display.innerText = "Start";
+            for (let i = 0; i < colors_arr.length; i++) {
+                let num = getRndInteger(0, 4);
+                console.log(num);
+                rand_arr.push(num);
+            }
         }, 4000);
+
+
+        setTimeout(function() {
+            display.innerText = "Level 1";
+            let time = 0;
+            for (let x = 0; x < rand_arr.length; x++) {
+                rand_id = colors_arr[rand_arr[x]];
+                console.log(rand_id);
+                (function(x) {
+                    setTimeout(getColorActive(rand_id), 1000 * x);
+                })(x);
+                time += 1000;
+            }
+        }, 5000);
+
+        setTimeout(function() {
+            display.innerText = "Go";
+            document.getElementById("red").addEventListener('click', getId);
+            document.getElementById("blue").addEventListener('click', getId);
+            document.getElementById("green").addEventListener('click', getId);
+            document.getElementById("yellow").addEventListener('click', getId);
+
+            function getId() {
+                console.log(this.id);
+                user_arr.push(this.id);
+                console.log(user_arr);
+                getColorActive(this.id);
+                getResult(user_arr, rand_arr);
+                return user_arr;
+            }
+            console.log(user_arr);
+        }, 10000)
+        return user_arr;
+    }
+
+    function getResult(user_arr, rand_arr) {
+        if (user_arr.length == 4) {
+            let result = 0;
+            for (let check = 0; check < 4; check++) {
+                if (colors_arr[rand_arr[check]] != user_arr[check]) {
+                    result += 1;
+                }
+            }
+            if (result == 0) {
+                display.innerText = "You Won";
+            } else {
+                display.innerText = "You Lose";
+            }
+            setTimeout(function() {
+                display.innerText = "Press Start";
+            }, 1000);
+        }
     }
 </script>
 
